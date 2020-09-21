@@ -314,6 +314,16 @@ a:hover, a:active, a:focus {
 -------------------------------------------------- */
 @media (max-width: 767px) {
 
+  .howtotext{
+    text-shadow: #2EC4B6;
+
+    color: rgb(24, 23, 23);
+    font-size: 15px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
     .counter {
     background-color:#0000007a;
     padding: 20px 0;
@@ -400,6 +410,7 @@ a:hover, a:active, a:focus {
 
 .howtotext{
     text-shadow: #2EC4B6;
+
     color: rgb(24, 23, 23);
     font-size: 20px;
     font-style: italic;

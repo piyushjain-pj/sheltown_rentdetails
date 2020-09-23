@@ -3,7 +3,7 @@ body {
 }
 .bg {
   /* The image used */
-  background-image: url("img/become-a-partner-hotel-1170x366.jpg");
+  background:whitesmoke;
 
   /* Half height */
   height: 50%;
@@ -16,7 +16,7 @@ body {
 
 .bg-2 {
   /* The image used */
-  background-image: url("img/background-become.png");
+  background:whitesmoke;
 
   /* Half height */
   height: 50%;
@@ -183,15 +183,15 @@ a:hover, a:active, a:focus {
         height: 100%;
     }
     .counter {
-    background-color:#0000007a;
+    width:300px;
+    background-color:#2ECAB6;
     border-radius: 50%;
     padding: 20px 0;
     border-radius: 5px;
 }
     .counter:hover { 
             transform: scale(1.1); 
-            background-color: #76e4d5b9;
-            transition-duration: 2s; 
+            transition-duration: 1s; 
             color: white; 
         } 
 
@@ -203,23 +203,26 @@ a:hover, a:active, a:focus {
     text-align: center;
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 2px 2px #2EC4B6;
 }
 
 .count-text {
-    font-size: 20px;
+    font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #2ecab5c9;
+    color: #26f6dbc9;
     font-weight:bold;
     margin-top: 10px;
     margin-bottom: 0;
     text-align: center;
+    text-shadow: 2px 2px #2EC4B6;
 }
 
 .fa-3x {
     margin: 0 auto;
     float: none;
     display: table;
-    color: #2ecab5c9;
+    
+    color: #26f6dbc9;
 }
 
 
@@ -235,16 +238,15 @@ a:hover, a:active, a:focus {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 32rem;
+  height: 28rem;
 }
 .carousel-item > img {
   position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 32rem;
-}
 
+}
 .carousel-item h1 {
   font-weight: bold;
 }
@@ -316,25 +318,24 @@ a:hover, a:active, a:focus {
 
   .howtotext{
     text-shadow: #2EC4B6;
-
     color: rgb(24, 23, 23);
     font-size: 15px;
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 600;
-}
+}  
 
     .counter {
-    background-color:#0000007a;
+    background-color:#2ECAB6;
     padding: 20px 0;
-    border-radius: 50%;
-    width: 59%;
+    border-radius: 5%;
+    width: 50%;
     margin: auto;
 }
     .counter:hover { 
             transform: scale(1.1); 
             background-color: #667a78b9;
-            transition-duration: 2s; 
+            transition-duration: 1s; 
             color: white; 
         } 
 
@@ -345,6 +346,7 @@ a:hover, a:active, a:focus {
     margin-bottom: 0;
     color: white;
     text-align: center;
+    text-shadow: 2px 2px #2EC4B6;
 }
 
 .count-text {
@@ -355,6 +357,7 @@ a:hover, a:active, a:focus {
     margin-top: 10px;
     margin-bottom: 0;
     text-align: center;
+    text-shadow: 2px 2px #2EC4B6;
 }
 
 .fa-3x {
@@ -367,6 +370,7 @@ a:hover, a:active, a:focus {
 
 
 }
+
 
 .howtotext{
     text-shadow: #2EC4B6;

@@ -3,7 +3,7 @@ body {
 }
 .bg {
   /* The image used */
-  background-image: url("img/become-a-partner-hotel-1170x366.jpg");
+  background:whitesmoke;
 
   /* Half height */
   height: 50%;
@@ -16,7 +16,7 @@ body {
 
 .bg-2 {
   /* The image used */
-  background-image: url("img/background-become.png");
+  background:whitesmoke;
 
   /* Half height */
   height: 50%;

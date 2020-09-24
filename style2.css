@@ -1,0 +1,358 @@
+/* Mobile Nav Toggle */
+#mobile-nav-toggle {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  margin: 20px 20px 0 0;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  display: none;
+  transition: all 0.4s;
+  outline: none;
+  cursor: pointer;
+  color: black;
+}
+
+#mobile-nav-toggle i {
+  color: black;
+  margin-top: 10px;
+}
+
+/* Mobile Nav Styling */
+#mobile-nav {
+  position: fixed;
+  top: 0;
+  padding-top: 18px;
+  bottom: 0;
+  z-index: 998;
+  background: #2ECAB6;
+  left: -260px;
+  width: 260px;
+  overflow-y: auto;
+  transition: 0.4s;
+}
+
+#mobile-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#mobile-nav ul li {
+  position: relative;
+}
+
+#mobile-nav ul li a {
+  color: #fff;
+  font-size: 16px;
+  overflow: hidden;
+  padding: 10px 22px 10px 15px;
+  margin-left: 0px;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  outline: none;
+}
+
+
+#mobile-nav ul li a:hover {
+  color: black;
+}
+
+#mobile-nav ul li li {
+  padding-left: 30px;
+}
+
+#mobile-nav ul .menu-has-children i {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  padding: 15px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#mobile-nav ul .menu-has-children i.fa-chevron-up {
+  color: #ff8c00;
+}
+
+#mobile-nav ul .menu-item-active {
+  color: #ff8c00;
+}
+
+#mobile-body-overly {
+  width: 100%;
+  height: 100%;
+  z-index: 997;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.08);
+  display: none;
+}
+
+/* Mobile Nav body classes */
+body.mobile-nav-active {
+  overflow: hidden;
+}
+
+body.mobile-nav-active #mobile-nav {
+  left: 0;
+}
+
+body.mobile-nav-active #mobile-nav-toggle {
+  color: #fff;
+}
+
+@media (max-width: 1000px) {
+  #nav-menu-container {
+    display: none;
+  }
+
+  #mobile-nav-toggle {
+    display: inline;
+  }
+}
+
+@media (max-width:450px) {
+  #mobile-nav-toggle {
+    margin: 0 5px 0 0;
+  }
+}
+
+.heading-background {
+  padding: 10px;
+}
+
+.heading {
+  font-size: 30px;
+  font-weight: bold;
+
+}
+.site-footer {
+  background-color: #323232;
+  padding: 45px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.site-footer hr.small {
+  margin: 20px 0
+}
+
+.site-footer h6 {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.about-text {
+  padding-right: 4.5rem;
+}
+
+.site-footer a {
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.site-footer a:hover {
+  text-decoration: none;
+}
+
+.footer-links {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  display: block;
+}
+
+.footer-links a {
+  color: white;
+}
+
+.footer-links a:active, .footer-links a:focus, .footer-links a:hover {
+  text-decoration: none;
+}
+
+.footer-links.inline li {
+  display: inline-block;
+}
+
+#footer-two {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#footer-two .footer-two-links li {
+  list-style-type: none;
+}
+
+#footer-two .footer-two-links a {
+  color: black;
+}
+
+.site-footer .social-icons {
+  text-align: right;
+}
+
+.site-footer .social-icons a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 6px;
+  margin-right: 0;
+  border-radius: 100%;
+  background-color: #323232;
+}
+
+.copyright-text {
+  margin: 0;
+}
+
+@media (max-width:1000px) {
+  .site-footer [class^=col-] {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width:1000px) {
+  .site-footer {
+    padding-bottom: 0;
+  }
+
+  .site-footer .copyright-text, .site-footer .social-icons {
+    text-align: center;
+  }
+}
+
+@media (max-width:1000px) {
+  .site-footer h6 {
+    font-size: 16px;
+    margin-top: 1px;
+  }
+
+  .site-footer p {
+    font-size: 12px;
+    margin-top: 1px;
+  }
+
+  .about-text {
+    padding-right: 12px;
+  }
+
+  .site-footer [class^=col-] {
+    margin-bottom: 0px;
+  }
+
+  .footer-links li {
+    font-size: 12px;
+  }
+
+  .site-footer .social-icons a {
+    width: 30px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .category-text {
+    width: 50%;
+  }
+
+  .quick-text {
+    width: 50%;
+    float: right;
+  }
+}
+
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px
+}
+
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px
+}
+
+.social-icons a {
+  background-color: #323232;
+  color: white;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear
+}
+
+.social-icons a:active, .social-icons a:focus, .social-icons a:hover {
+  color: #fff;
+  background-color: #062466;
+}
+
+.social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px
+}
+
+.social-icons a.facebook:hover {
+  background-color: #3b5998
+}
+
+.social-icons a.twitter:hover {
+  background-color: #00aced
+}
+
+.social-icons a.linkedin:hover {
+  background-color: #0e76a8
+}
+
+.social-icons a.dribbble:hover {
+  background-color: #c41540
+}
+
+/* end of footer */
+/* end of css */
+@media (max-width:1000px) {
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600
+  }
+}
+
+.modal .btn{
+  color:black;
+  background-color: #5bc0de;
+}
+a[href^="mailto:info@sheltown.com"] {
+  color:#2ECAB6;
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,11 +18,9 @@
     <link rel="stylesheet" href="bootstrap/css/mdb.min.css">
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="stylesheet.css">
-    <style>
-        .sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:1020}
-    </style>
-
+    <link rel="stylesheet" href="footer.css">
     <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="counter.jquery.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
@@ -29,172 +28,130 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="bootstrap/js/mdb.min.js"></script>
     <!-- Your custom scripts (optional) -->
-     <script type="text/javascript">
+    <script type="text/javascript">
+    
+    </script>
+    <style>
+    </style>
 
-     (function ($) {
-            $.fn.countTo = function (options) {
-                options = options || {};
-
-                return $(this).each(function () {
-                    // set options for current element
-                    var settings = $.extend({}, $.fn.countTo.defaults, {
-                        from: $(this).data('from'),
-                        to: $(this).data('to'),
-                        speed: $(this).data('speed'),
-                        refreshInterval: $(this).data('refresh-interval'),
-                        decimals: $(this).data('decimals')
-                    }, options);
-
-                    // how many times to update the value, and how much to increment the value on each update
-                    var loops = Math.ceil(settings.speed / settings.refreshInterval),
-                        increment = (settings.to - settings.from) / loops;
-
-                    // references & variables that will change with each update
-                    var self = this,
-                        $self = $(this),
-                        loopCount = 0,
-                        value = settings.from,
-                        data = $self.data('countTo') || {};
-
-                    $self.data('countTo', data);
-
-                    // if an existing interval can be found, clear it first
-                    if (data.interval) {
-                        clearInterval(data.interval);
-                    }
-                    data.interval = setInterval(updateTimer, settings.refreshInterval);
-
-                    // initialize the element with the starting value
-                    render(value);
-
-                    function updateTimer() {
-                        value += increment;
-                        loopCount++;
-
-                        render(value);
-
-                        if (typeof (settings.onUpdate) == 'function') {
-                            settings.onUpdate.call(self, value);
-                        }
-
-                        if (loopCount >= loops) {
-                            // remove the interval
-                            $self.removeData('countTo');
-                            clearInterval(data.interval);
-                            value = settings.to;
-
-                            if (typeof (settings.onComplete) == 'function') {
-                                settings.onComplete.call(self, value);
-                            }
-                        }
-                    }
-
-                    function render(value) {
-                        var formattedValue = settings.formatter.call(self, value, settings);
-                        $self.html(formattedValue);
-                    }
-                });
-            };
-
-            $.fn.countTo.defaults = {
-                from: 0,               // the number the element should start at
-                to: 0,                 // the number the element should end at
-                speed: 1000,           // how long it should take to count between the target numbers
-                refreshInterval: 100,  // how often the element should be updated
-                decimals: 0,           // the number of decimal places to show
-                formatter: formatter,  // handler for formatting the value before rendering
-                onUpdate: null,        // callback method for every time the element is updated
-                onComplete: null       // callback method for when the element finishes updating
-            };
-
-            function formatter(value, settings) {
-                return value.toFixed(settings.decimals);
-            }
-        }(jQuery));
-
-        jQuery(function ($) {
-            // custom formatting example
-            $('.count-number').data('countToOptions', {
-                formatter: function (value, options) {
-                    return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
-                }
-            });
-
-            // start all the timers
-            $('.timer').each(count);
-
-            function count(options) {
-                var $this = $(this);
-                options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-                $this.countTo(options);
-            }
-        });
-    function hiddenDivitem() {
-      var x = document.getElementById("HiddenDiv");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
+<style>
+    .timeline {
+        position: relative;
+        list-style: none;
+        padding: 1rem 0;
+        margin: 0;
     }
-    /// some script
-    $(function () {
-      'use strict'
-      $("[data-trigger]").on("click", function () {
-        $(".textout").show();
-        var trigger_id = $(this).attr('data-trigger');
-        $(trigger_id).toggleClass("show");
-        $('body').toggleClass("offcanvas-active");
-      });
 
-      // close if press ESC button 
-      $(document).on('keydown', function (event) {
-        if (event.keyCode === 27) {
-          $(".navbar-collapse").removeClass("show");
-          $("body").removeClass("overlay-active");
-          $(".textout").show();
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        margin-left: -1px;
+        background-color: #2ECAB6;
+    }
+
+    .timeline-element {
+        position: relative;
+        width: 50%;
+        padding: 1rem 0;
+        padding-right: 2.5rem;
+        text-align: right;
+    }
+
+    .timeline-element::before {
+        content: '';
+        position: absolute;
+        right: -8px;
+        top: 1.35rem;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #65bb54;
+        background-color: #fff;
+    }
+
+    .timeline-element:nth-child(even)::before {
+        right: auto;
+        left: -8px;
+    }
+
+    .timeline-element:nth-child(even) {
+        margin-left: 50%;
+        padding-left: 2.5rem;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    @media (max-width: 767.98px) {
+        .timeline::before {
+            left: 8px;
         }
-      });
+    }
 
-      // close button 
-      $(".btn-close").click(function (e) {
-        $(".navbar-collapse").removeClass("show");
-        $("body").removeClass("offcanvas-active");
-        $(".textout").hide();
-      });
-    })
+    @media (max-width: 767.98px) {
+        .timeline-element {
+            width: 100%;
+            text-align: left;
+            padding-left: 2.5rem;
+            padding-right: 0;
+        }
+    }
 
-    $('.count').each(function () {
-            $(this).prop('Counter', 0).animate({
-                Counter: $(this).text()
-            }, {
-                duration: 4000,
-                easing: 'swing',
-                step: function (now) {
-                    $(this).text(Math.ceil(now));
-                }
-            });
-        });
+    @media (max-width: 767.98px) {
+        .timeline-element::before {
+            top: 1.25rem;
+            left: 1px;
+        }
+    }
 
-  </script>
+    @media (max-width: 767.98px) {
+        .timeline-element:nth-child(even) {
+            margin-left: 0rem;
+        }
+    }
 
+    @media (max-width: 767.98px) {
+        .timeline-element {
+            width: 100%;
+            text-align: left;
+            padding-left: 2.5rem;
+            padding-right: 0;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .timeline-element:nth-child(even)::before {
+            left: 1px;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .timeline-element::before {
+            top: 1.25rem;
+        }
+    }
+</style>
 </head>
+
+
 <body>
 <!--Navbar -->
 <header class="sticky-top">
-    <nav style="box-shadow: none "class="navbar navbar-expand-lg theme-color navbar-light py-0 font-weight-bold ">
+
+    <nav style="box-shadow: none"class="navbar navbar-expand-lg theme-color navbar-light py-1 font-weight-bold ">
         <a class=" navbar-brand" href="#">
         <img src="https://sheltown.in/static/sheltownapp/img/logo.png" width="150" height="50" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-trigger="#main_nav">
-            <span class="navbar-toggler-icon"></span>
+        <span class="fa fa-bars"></span>
         </button>
         <div class="navbar-collapse" id="main_nav">
             <div class="offcanvas-header mt-3">
-                <button style="background: none; border:none;" class="btn-close float-right"><i class="fa fa-times"
-                        aria-hidden="true" style="font-size : 28px;"></i></button>
-                <h5 class="py-2 text-black "><b><b>Sheltown</b></b></h5>
+                <button style="background: none; border:none;" class="btn-close float-right"><i class="fa fa-times"aria-hidden="true" style="font-size : 28px;"></i></button>
             </div>
-
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link"><i class="fas fa-user-plus"></i><b>&nbsp;Sign up</b></a>
@@ -202,49 +159,49 @@
                 <li class="nav-item">
                     <a class="nav-link"><i class="fas fa-user-circle"></i><b>&nbsp;&nbsp;Log in</b></a>
                 </li>
-
             </ul>
-        </div> <!-- navbar-collapse.// -->
+        </div>
     </nav>
 </header>
 <!--/.Navbar -->
-
-<!--/.Navbar -->
 <!-- End header-->
+
 <!--Main Sections start here-->
 <main role="main" >
 <!--Carousel Wrapper-->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1" ></li>
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
     </ol>
-    <div class="carousel-inner mb-5">
-        <div class="carousel-item active">
-            <img class="" src="https://heroesinrecovery.com/wp-content/uploads/partner-background-1200x452.jpg" alt="text">
-            <div class="container">
-                <div class="carousel-caption text-left">
-                    <p style="font-size: 50px; text-shadow: -1px -2px 3px  black;  font-family: 'Times New Roman', Times, serif;" class="h1 font-weight-bold">List Your Property</p>
-                    <hr class="hr-light"  align="left" width=50%/>
-                    <p class="h5" style="text-shadow: -1px -2px 3px  black; ">What you need to know ?
-                        Verified Tenants.
-                        Hassle free Rent collection.<br>
-                        <b>List at the right place and at the right price.</b></p>
-                    <p><a class="btn btn-outline-light btn-manual btn-lg wave-effect" href="/openmodal" style="color:#fff;" role="button"><span style="font-family: Georgia, 'Times New Roman', serif; text-shadow: -1px -2px 3px  black;  font-weight: bold;">Sign up today!</span></a></p>
-                </div>
-            </div>
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="https://heroesinrecovery.com/wp-content/uploads/partner-background-1200x452.jpg"alt="text">
+        <div class="container">
+        <div class="carousel-caption text-left">
+        <p class="h1 carousel-item-text font-weight-bold">List Your Property</p>
+        <hr class="hr-light" align="left" width="auto"/>
+        <p class="h5 carousel-item-sub-text" >
+        What you need to know? Verified Tenants. Hassle free Rent collection.<br>
+        List at the right place and at the right price.</p>
+        <p><a class="btn btn-outline-light btn-manual wave-effect" href="/openmodal"
+        style="color:#fff;" role="button">
+        <span style="font-family: Georgia, 'Times New Roman', serif; text-shadow: -1px -2px 3px  black;  font-weight: bold;">Signup today!</span></a></p>
         </div>
-        <div class="carousel-item">
-            <img class="" src="img/partners-1.jpg" alt="">
-            <div class="container">
-                <div class="carousel-caption text-left " >
-                    <p style="font-size: 50px; text-shadow: -1px -2px 3px  black; font-family: 'Times New Roman', Times, serif;"class="h1 font-weight-bold "  ">List Your Service</p>
-                    <hr class="hr-light" align="left" width=50% />
-                    <p class="h5" style="text-shadow: -1px -2px 3px  black; ">You can start today. Be super productive, spread your services with magic and stories.<br>
-                    <b>Build new relations.</b></p>
-                    <p><a class="btn btn-outline-light btn-lg btn-manual wave-effect" href="/openmodal" style="color:#fff;"  role="button"><span style="font-family: Georgia, 'Times New Roman', serif;  text-shadow: -1px -2px 3px  black; font-weight: bold;">Sign up today!</span>
-                    </a></p>
-                </div>
+        </div>
+    </div>
+        <div class="carousel-item mb-2">
+            <img src="img/partners-1.jpg" alt="">
+            <div class="container ">
+            <div class="carousel-caption text-left">
+            <p class="h1 carousel-item-text font-weight-bold">List Your Property</p>
+            <hr class="hr-light" align="left" width="auto" />
+            <p class="h5 carousel-item-sub-text">
+            Build new relations.You can start today.Be super productive,spread your services with magic and stories.<br />Build new relations.</p>
+            <p><a class="btn btn-outline-light btn-manual wave-effect" href="/openmodal"
+            style="color:#fff;" role="button">
+            <span style="font-family: Georgia, 'Times New Roman', serif; text-shadow: -1px -2px 3px  black;  font-weight: bold;">Signup today!</span></a></p>
+            </div>
             </div>
         </div>
     </div>
@@ -258,244 +215,412 @@
     </a>
 </div>
 <!--/.Carousel Wrapper-->
-<section class="bg">
-    <section class="container py-5">
-        <div class="row text-center">
-            <div class="col-lg-4 col-md-4 col-sm-3 mb-3">
-                <!-- Card Dark -->
-                <div class="card card-res counter">
-                    <!-- Card content -->
-                    <div class="card-body elegant-color white-text rounded-bottom">
-                    <!-- Card Dark -->
-                    <div class="">
-                        <i class="fa fa-hotel fa-3x"></i>
-                        <span class="timer count-title count-number" data-to="1000" data-speed="1500"></span>
-                        <span class="count-title">+</span>
-                        <p class="count-text">Partner</p>
-                    </div>
-                    </div>
-                </div>
-  
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 mb-3">
-                <div class="card card-res counter">
-                    <!-- Card content -->
-                    <div class="card-body elegant-color white-text rounded-bottom">
-                    <!-- Card Dark -->
-                    <div class="">
-                    <i class="fa fa-bed fa-3x"></i>
-                    <span class="timer count-title count-number" data-to="100" data-speed="1500"></span>
-                    <span class="count-title">+</span>
-                    <p class="count-text ">Service</p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 mb-3">
-            <div class="card card-res counter">
-                    <!-- Card content -->
-                <div class="card-body elegant-color white-text rounded-bottom">
-                    <!-- Card Dark -->
-                    <div class="">
-                    <i class="fa fa-bed fa-3x"></i>
-                    <span class="timer count-title count-number" data-to="16" data-speed="1500"></span>
-                    <span class="count-title">+</span>
-                    <p class="count-text ">Cities</p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            </div>
-    </section>
-
-</section>
-
-<div class="container">
-
 <center>
-<div style="font-family: Georgia, 'Times New Roman', serif; box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.16);"class="hoverable mt-5 h5 theme-color py-3">We make sure you get your worth<b></b></div>
+<div class="container pt-5">
+    <div class="row w-100">
+        <div class="col-sm-3-c col-lg-3 col-md-4 mb-5">
+            <div class="card counter border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card"><i class="fa fa-counter  fa-users fa-counter "
+                aria-hidden="true"></i></div>
+                <div class="text-center mt-4"><p class="count-text ">Partners</p>
+                </div>
+                <div class="text-center"><span class="timer count-title count-number" data-to="1000" data-speed="1500"></span>
+                <span class="count-title">+</span>
+                </div>
+        </div>
+        </div>
+        <div class="col-sm-3-c col-lg-3 col-md-4  mb-5">
+            <div class="card counter border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card"><i
+                        class="fa fa-counter  fa-concierge-bell" aria-hidden="true"></i></div>
+                <div class="text-center mt-4">
+                    <p class="count-text ">Services</p>
+                </div>
+                <div class="text-center"><span class="timer count-title count-number" data-to="100" data-speed="1500"></span>
+                    <span class="count-title">+</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3-c col-lg-3 col-md-4  mb-5">
+            <div class="card counter border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card"><i
+                        class="fa fa-hotel fa-counter  " aria-hidden="true"></i></div>
+                <div class="text-center mt-4">
+                    <p class="count-text ">Rooms</p>
+                </div>
+                <div class="text-center "><span class="timer count-title count-number" data-to="2500" data-speed="1500"></span>
+                    <span class="count-title">+</span>
+                </div>
+            </div>
+
+            </div>
+                <div class="col-sm-3-c col-lg-3 col-md-4 col-sm-3-c  mb-5">
+                        <div class="card counter border-info mx-sm-1 p-3">
+                            <div class="card border-info shadow text-info p-3 my-card"><i class="fa fa-city fa-counter " aria-hidden="true"></i>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="count-text ">Cities</p>
+                            </div>
+                            <div class="text-center"><span class="timer count-title count-number" data-to="16" data-speed="1500"></span>
+                                <span class="count-title">+</span>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
 </center>
 
-
-<!--Section: Main info-->
-<section class=" container mt-5 wow fadeIn">
-        <!--Grid row-->
-        <div class="row featurette">
-            <!--Grid column-->
-            <div class="col-lg-7 mb-4">
-            <!-- Main heading -->
-            <!-- START THE FEATURETTES -->               
-                        <h2 class="h1 featurette-heading">Not just a Partner, <span>You are Family to us.</span></h2>
-                        <p><b>How To Become SheltOwn Property Partner?</b></p>
-                        <div class="row">
-                            <div class="hoverable col-2 mb-2 py-3 px-2 "><i class="fa fa-user-plus fa-3x" aria-hidden="true"></i></div>
-                            <div class="col-10 py-2 px-3 h4"><p class="howtotext">Sign up</p></div>
-
-                            <div class="hoverable col-2 mb-2 py-3 px-2 "><i class="fas fa-file-signature fa-3x"></i></div>
-                            <div class="col-10 py-2 px-3 h4"><p class="howtotext">Hassle Free Paperwork.</p></div>
-
-                            <div class="hoverable col-2 mb-2 py-3 px-2 "><i class="fas fa-chart-line fa-3x"></i></div>
-                            <div class="col-10 py-2 px-3 h4"><p class="howtotext">Increased occupency, online Rent, Branding.</p></div>
-                        
-                        </div>
-         
+<div class="container mt-2">
+<div class="card z-depth-1">
+    <!-- Card content -->
+    <div class="card-body py-0">
+        <div class="row">
+        <div class="col-lg-4 px-0 py-1 ">
+            <!-- Default form contact -->
+            <div class="px-0">
+            <img class="img-fluid formimage z-depth-1-half rounded" src="img/pexels-pew-nguyen-244133.jpg" alt="Paperwork">
             </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-5 mb-4">
-            
-                <img src="https://sheltown.in/media/4Worried_about_getting_Tenants_.png" class="img-fluid"
-                    alt="images">
-            
-            </div>
-            <!--Grid column-->
-
-
         </div>
-        <!--Grid row-->
+        <div class="col-lg-8">
+                <div>
+                    <div style="font-family: 'Times New Roman', Times, serif;" class="text-center py-4 h3 dark-grey-text">List Your Property Here For Free</div>
+                    <!-- Default form register -->
+                    <form class="text-center p-2" action="#!">
+                        <div class="form-row mb-2">
+                            <div class="col mb-3">
+                                <!-- First name -->
+                                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                            </div>
+                            
+                            <div class="col">
+                                <!-- Last name -->
+                                <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-row mb-1">
+                        <!-- E-mail -->
+                        <div class="col-sm-6 input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-at light-info-text"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="email address" aria-label="E-mail"
+                                aria-describedby="basic-addon1">
+                            </div>
+                      
+    
+                        <div class="col-sm-6 input-group mb-3">
+                        <!-- Phone number -->
+                        <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone-alt light-info-text"></i></span>
+                            </div>
+                        <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        </div>
+                        </div>
+                    
 
-    </section>
-    <!--Section: Main info-->
+                        <div class="form-row mb-2">
+                        <div class="col-12">
+                            
+                        <!-- Phone number -->
+                        <select class="browser-default custom-select mb-4">
+                            <option value="" disabled>Choose Country</option>
+                            <option value="1" selected>Country</option>
+                            <option value="2">India</option>
+                            <option value="3">USA</option>
+                            <option value="4">Nepal</option>
+                        </select>
 
-    <hr class="my-5">
+                        </div>
+                        <div class="col text-left">
+                        <div class="py-2 custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
+                            <label class="custom-control-label" for="defaultRegisterFormNewsletter">Get updates on<i class="fab fa-whatsapp light-green-text mx-1"></i> WhatsApp</label>
+                        </div>
+                        </div>
 
+                        <div class="col-12 py-2">
+                            <h5 class="text-gray font-weight-bold border-bottom ">PROPERTY TYPE</h5>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link theme-color active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                                        aria-selected="true">Residential</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link theme-color" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                                        aria-selected="false">Commercial</a>
+                                </li>
 
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><!-- Default inline 1-->
+                                    <div class="py-3 px-auto">
+                                        <p class="font-weight-bold border-bottom">Select Property Ad Type</p>
+                                        
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
+                                    <label class="custom-control-label" for="defaultInline1">Rent</label>
+                                </div>
+                                
+                                <!-- Default inline 2-->
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+                                    <label class="custom-control-label" for="defaultInline2">Resale</label>
+                                </div>
+                                
+                                <!-- Default inline 3-->
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample">
+                                    <label class="custom-control-label" for="defaultInline3">PG/Hostel</label>
+                                </div>
+                                 <!-- Default inline 3-->
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="defaultInline33" name="inlineDefaultRadiosExample">
+                                    <label class="custom-control-label" for="defaultInline33">flatmates</label>
+                                </div>
+                            </div></div>
+
+                                
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><!-- Default inline 1-->
+                                    <div class="py-3 px-auto">
+                                        <p class="font-weight-bold border-bottom ">Select Property Ad Type</p>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="defaultInline21" name="inlineDefaultRadiosExample">
+                                    <label class="custom-control-label" for="defaultInline21">Rent</label>
+                                </div>
+                                
+                                <!-- Default inline 2-->
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="defaultInline22" name="inlineDefaultRadiosExample">
+                                    <label class="custom-control-label" for="defaultInline22">Sale</label>
+                                </div>
+              </div>
+              
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                        <!-- Sign up button -->
+                        <button class="btn btn-default my-4 btn-block" type="submit">Start Listing Property for Free</button>
+
+                
+                    </form>
+                    <!-- Default form register -->        
+                </div>
+     
+        </div>
+                                        <div class="mb-4 text-center">
+                                        <!-- Social register -->
+                                    
+                                        <p>Get in touch with social site</p>
+                                    
+                                        <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+                                        <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                                        <a href="#" class="mx-2" role="button"><i class="fab fa-instagram light-blue-text"></i></a>
+                                        <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                                    
+                                    </div>
+        </div>
+    
+    </div>
+
+</div>
+</div>
+<div class="container py-3">
+    <div class=" callus theme-color text-center">
+        <p class="p-2 mb-1 px-2 pb-0 font-weight-light"><i class="fa fa-phone-alt"></i>
+            Give a missed call to 123-456-6666 or WhatsApp 00000-00-000 to get help with your property listing</p>
+    </div>
 </div>
 
 
-    <!--Section: Main features & Quick Start-->
-<section class="container-fluid bg-2">
-    <section class="container py-5">
-        <div class="row text-center">
-            <div class="col-lg-4 col-md-4 col-sm-3 mb-3">
-                <!-- Card Dark -->
-                <div class="card card-res counter">
-                    <!-- Card content -->
-                    <div class="card-body elegant-color white-text rounded-bottom">
-                        <!-- Card Dark -->
-                        <div class="">
-                            <i class="fa fa-hotel fa-3x"></i>
-                            <span class="timer count-title count-number" data-to="2500" data-speed="1500"></span>
-                            <span class="count-title">+</span>
-                            <p class="count-text">Rooms</p>
-                        </div>
-                    </div>
-                </div>
 
+<div class="container  py-4 ">
+    <!--Section: Content-->
+    <section class="px-md-5 mx-md-5 text-center dark-grey-text">
+
+        <!-- Section heading -->
+        <h3 class="font-weight-bold dark-grey-text mb-4 pt-3 pb-2">Why SheltOwn?</h3>
+        <hr class="w-header">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+
+            <!--First column-->
+            <div class="col-lg-3 p-2 col-md-6 hoverable">
+                <i class="fas fa-phone-slash fa-3x blue-text"></i>
+
+                <p class="font-weight-bold my-3">No Call From Brokers</p>
+
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 mb-3">
-                <div class="card card-res counter">
-                    <!-- Card content -->
-                    <div class="card-body elegant-color white-text rounded-bottom">
-                        <!-- Card Dark -->
-                        <div class="">
-                            <i class="fa fa-bed fa-3x"></i>
-                            <span class="timer count-title count-number" data-to="5000" data-speed="1500"></span>
-                            <span class="count-title">+</span>
-                            <p class="count-text ">Beds</p>
-                        </div>
-                    </div>
-                </div>
+            <!--/First column-->
+
+            <!--Second column-->
+            <div class="col-lg-3 p-2 col-md-6 hoverable">
+                <i class="fas fa-user-check fa-3x teal-text"></i>
+
+                <p class="font-weight-bold my-3">Verified Tenants</p>
+
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 mb-3">
-                <div class="card card-res counter">
-                    <!-- Card content -->
-                    <div class="card-body elegant-color white-text rounded-bottom">
-                        <!-- Card Dark -->
-                        <div class="">
-                            <i class="fa fa-bed fa-3x"></i>
-                            <span class="timer count-title count-number" data-to="16" data-speed="1500"></span>
-                            <span class="count-title">+</span>
-                            <p class="count-text ">Cities</p>
-                        </div>
-                    </div>
-                </div>
+            <!--/Second column-->
+
+            <!--Third column-->
+            <div class="col-lg-3 p-2 col-md-6 hoverable">
+                <i class="fas fa-piggy-bank fa-3x indigo-text"></i>
+
+                <p class="font-weight-bold my-3">Save Brokerage</p>
+
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <!--/Third column-->
+
+            <!--Fourth column-->
+            <div class="col-lg-3 p-2 col-md-6 hoverable">
+                <i class="fas fa-user-shield fa-3x deep-purple-text"></i>
+
+                <p class="font-weight-bold my-3">Ultimate Privacy</p>
+
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <!--/Fourth column-->
+
+        </div>
+        <!--/Grid row-->
+
+
+    </section>
+    <!--Section: Content-->
+</div>
+
+
+<div class="container-fluid my-5 py-5" style="background-color: #f5f5f5;">
+
+    <!-- Section -->
+    <section >
+        <h3 class="font-weight-bold text-center dark-grey-text pb-2">How To Become SheltOwn Property Partner?</h3>
+        <hr class="w-header my-4">
+        <p class="lead h5 featurette-heading text-center text-muted pt-2 mb-5">Not just a Partner,<span>You are Family to us</span> </p>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+
+                <ol class="timeline">
+                    <li class="timeline-element">
+                        <h5 class="font-weight-bold dark-grey-text mb-3">Step 1: Sign up</h5>
+                        <p><img class="img-fluid z-depth-1-half rounded" src="img/signup.jpg" alt="Paperwork">
+                        </p>
+
+                    </li>
+
+                    <li class="timeline-element">
+                        <h5 class="font-weight-bold dark-grey-text mb-3">Step 2: Hassle Free Paperwork.</h5>
+
+                        <p><img class="img-fluid z-depth-1-half rounded"
+                                src="img/increament.jpg" alt="Paperwork">
+                        </p>
+
+                    </li>
+
+                    <li class="timeline-element">
+                        <h5 class="font-weight-bold dark-grey-text mb-3">Step 3: Increased occupency, online Rent, Branding</h5>
+                        <p><img class="img-fluid z-depth-1-half rounded" src="img/paperwork.jpg" alt="Paperwork">
+                        </p>
+
+                    </li>
+
+                </ol>
+
             </div>
         </div>
+
     </section>
+    <!-- Section -->
+</div>
 
-</section>
+<div class="container-fluid ">
+    <!--Section: Content-->
+    <section>
+        <div class="row">
+            <div class="col-md-12 col-lg-10 mx-auto w-100 ">
+                <!--Accordion wrapper-->
+                <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                    <!-- Accordion card -->
+                    <div class="card border-top border-bottom-0 border-left border-right border-light">
+                        <!-- Card header -->
+                        <div class="card-header border-bottom border-light" role="tab" id="headingOne1">
+                            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1"
+                                aria-expanded="true" aria-controls="collapseOne1">
+                                <p class="h5-responsive text-default font-weight-normal mb-0">
+                                What is the benefit of Listing property ads on Sheltown?<i class="fas fa-angle-down rotate-icon"></i>
+                                </p>
+                            </a>
+                        </div>
 
+                        <!-- Card body -->
+                        <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                            data-parent="#accordionEx">
+                            <div class="py-3 px-3">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia voluptas debitis inventore, illo repellat sunt culpa numquam iste pariatur iure eligendi voluptate dolore exercitationem! Cupiditate molestiae veritatis fugiat quam laudantium?
+                            </div>
+                        </div>
 
-<div class="container">
-<hr class="my-5">
-
-
-    <!--Section: Main info-->
-    <section class=" container mt-5 wow fadeIn">
-        <!--Grid row-->
-        <div class="row featurette">
-
-
-
-                    <!--Grid column-->
-                    <div class="col-lg-5 mb-4">
-                    
-                        <img src="https://sheltown.in/media/4are_u_a_service_provider.png" class="img-fluid" alt="images">
-                    
                     </div>
-                    <!--Grid column-->
-            <!--Grid column-->
-            <div class="col-lg-7 mb-4 mt-0">
-                <!-- Main heading --> 
-                <!-- START THE FEATURETTES -->
-                <h2 class="h1 featurette-heading">Not just a Partner, <span>You are Family to us.</span></h2>
-                <p><b>How To Become SheltOwn Property Partner?</b></p>
-                <div class="row">
-                    <div class="hoverable col-2 mb-2 py-3 px-2 "><i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card border-bottom-0 border-left border-right border-light">
+
+                        <!-- Card header -->
+                        <div class="card-header border-bottom border-light" role="tab" id="headingTwo2">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                                aria-expanded="false" aria-controls="collapseTwo2">
+                                <p class=" text-default h5-responsive black-text font-weight-normal mb-0">
+                                Can I get additional support from sheltOwn? <i class="fas fa-angle-down rotate-icon"></i>
+                                </p>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                            data-parent="#accordionEx">
+                            <div  class="card-body">
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, repudiandae tenetur rerum ut impedit perspiciatis expedita cupiditate distinctio deleniti. Sunt eligendi unde iste itaque explicabo pariatur molestias neque, totam sed?
+                                    </p>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-10 py-2 px-3 ">
-                        <p class="howtotext h4">Sign up</p>
-                    </div>
-    
-                    <div class="hoverable col-2 mb-2 py-3 px-2 "><i class="fas fa-file-signature fa-3x"></i></div>
-                    <div class="col-10 py-2 px-3 ">
-                        <p class="howtotext h4">Hassle Free Paperwork.</p>
-                    </div>
-     
-                    <div class="hoverable col-2 mb-2 py-3 px-2 "><i class="fas fa-chart-line fa-3x"></i></div>
-                    <div class="col-10 py-2 px-3 ">
-                        <p class="howtotext h4">Increased occupency, online Rent, Branding.</p>
-                    </div>
-    
+                    <!-- Accordion card -->
+
                 </div>
-    
-            </div>
-            <!--Grid column-->
-    
-  
-    
-    
-        </div>
-        <!--Grid row-->
-    
-    </section>
-    
-    <hr class="my-5">
+                <!-- Accordion wrapper -->
 
+            </div>
+        </div>
+
+    </section>
+</div>
 
 <section class="container mt-5 mb-5">
+    <hr class="my-5">
     <div class="row">
         <div class="col-12 py-2 col-sm-12">
             <center>
-                <div style="font-family: Georgia, 'Times New Roman', serif;" class="h4"><b>Need More Information ? </b></div>
-                <div  type="button" href="#" class="px-5 btn btn-lg btn-outline-dark btn-rounded"><span  style="font-family: Georgia, 'Times New Roman', serif;">Contact US</span></div>
+                <div style="font-family: Georgia, 'Times New Roman', serif;" class="h4"><b>Need More Information ? </b>
+                </div>
+                <div type="button" href="#" class="px-5 btn btn-lg btn-outline-dark btn-rounded"><span
+                        style="font-family: Georgia, 'Times New Roman', serif;">Contact US</span></div>
             </center>
         </div>
     </div>
 
 </section>
 
-</div>
-
-
-
-
-
 </main>
 <!--Main Sections End here-->
-
 <!---------Footer section will here-->    
 <!--Footer one -->
 <footer class="site-footer py-5 mt-1 ">
@@ -546,8 +671,8 @@
     
             </div>
         </div>
-    </footer>
-    <section class="footer-two">
+</footer>
+<section class="footer-two">
         <div class="container">
             <a style="color: #2ecab5c9; cursor: pointer;" onclick=hiddenDivitem()>More info</a>
             <br>
@@ -848,7 +973,7 @@
                 </div>
             </div>
         </div>
-    </section>
-    </body>
+</section>
+</body>
     
     </html>

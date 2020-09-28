@@ -27,7 +27,7 @@
     }
     
         /* Mark input boxes that gets an error on validation: */
-        input[type=text].invalid {
+        input.invalid {
             border-radius: 0px;
             border: 1px solid #ec3709cf;
 

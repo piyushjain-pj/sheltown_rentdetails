@@ -61,7 +61,7 @@
     width: 50%;
     height: 100px;
     margin: 50px auto;
-    background-color: #c9caca!important;
+    background-color: #999f9f!important;
     height: 200px;
     padding: 20px 10px;
     font-size: 1rem;
@@ -75,7 +75,7 @@ input[type="file"] {
     cursor: default;
     align-items: baseline;
     color: inherit;
-    height: 29px;
+    height: 30px;
     text-align: start !important;
     padding: initial;
     border: initial;

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Become Partner</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="https://sheltown.in/static/sheltownapp/img/favicon.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="addproperty.css">
+    <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="counter.jquery.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="bootstrap/js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+    </script>
+    <style>
+    </style>
+    <script>
+    $(document).ready(function(){
+    
+    var current_fs, next_fs, previous_fs;
+    
+    // No BACK button on first screen
+    if($(".show").hasClass("first-screen")) {
+    $(".prev").css({ 'display' : 'none' });
+    }
+    
+    // Next button
+    $(".next-button").click(function(){
+    
+    current_fs = $(this).parent().parent();
+    next_fs = $(this).parent().parent().next();
+    
+    $(".prev").css({ 'display' : 'block' });
+    
+    $(current_fs).removeClass("show");
+    $(next_fs).addClass("show");
+    
+    $("#progressbar li").eq($(".card2").index(next_fs)).addClass("active");
+    
+    current_fs.animate({}, {
+    step: function() {
+    
+    current_fs.css({
+    'display': 'none',
+    'position': 'relative'
+    });
+    
+    next_fs.css({
+    'display': 'block'
+    });
+    }
+    });
+    });
+    
+    // Previous button
+    $(".prev").click(function(){
+    
+    current_fs = $(".show");
+    previous_fs = $(".show").prev();
+    
+    $(current_fs).removeClass("show");
+    $(previous_fs).addClass("show");
+    
+    $(".prev").css({ 'display' : 'block' });
+    
+    if($(".show").hasClass("first-screen")) {
+    $(".prev").css({ 'display' : 'none' });
+    }
+    
+    $("#progressbar li").eq($(".card2").index(current_fs)).removeClass("active");
+    
+    current_fs.animate({}, {
+    step: function() {
+    
+    current_fs.css({
+    'display': 'none',
+    'position': 'relative'
+    });
+    
+    previous_fs.css({
+    'display': 'block'
+    });
+    }
+    });
+    });
+    
+    });
+</script>
+</head>
+
+<body>
+
+<main role="main">
+<div class="container-fluid px-1  py-5 mx-auto app-inner ">
+            <!--inner Nav bar Section-->
+            <div class="container py-1">
+                <div class="row">
+                    <div class="col-sm-12 pb-1 mb-2">
+                        <div class="card row white " style="flex-direction: row;">
+                            <div class="col-lg-4 col-sm-12">
+                                <div><img class="hoverable" style="padding-top: 14px;" alt="img"
+                                        src="https://assets.nobroker.in/nb-new/public/Pyp-Form/resale_logo.png">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-sm-12 " style="padding-top: 30px">
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar pt-5" role="progressbar" style="width: 10%;" aria-valuenow="10"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1" style="padding-top: 20px"><span class="flex-direction : row">10% Done</span></div>
+                    
+                    
+                            <div class="col-lg-2 col-sm-12">
+                                <button class="btn btn-success">Preview</button>
+                            </div>
+                        </div>
+                </div></div>
+
+                <div class="row">
+                    <!--Side bar -->
+                    <div class="col-lg-2 bg-white px-0 mx-0">
+                        <div class="sidebar-sticky py-2">
+                            <ul id="progressbar">
+                                <div class="list-group list-group-flush">
+                                                <li class="active step0"></li>
+                                                <li class="step0"></li>
+                                                <li class="step0"></li>
+                                                <li class="step0"></li>
+                                                <li class="step0"></li>
+                                                <li class="step0"></li>
+                                </ul>
+                                <ul class="nav flex-column"">
+                                    <a href="#" class="py-3 list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-home mr-3"></i>Property Details</a>
+                                    
+                                    <a href="#" class="py-3 list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-map-marker-alt mr-3"></i>&nbsp;Locality Details</a>
+
+                                    <a href="#" class="py-3 list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-city mr-3"></i>Rental Details</a>
+                                        
+                                    <a href="#" class="py-3 list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-images mr-3"></i>Gallery</a>
+
+                                    <a href="#" class="py-3 list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-tv mr-3"></i>Amenities</a>
+
+                                    <a href="#" class="py-3 list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-calendar-alt mr-3"></i>&nbsp;Schedule</a>
+                                </ul>
+                                </div>
+                        </div>
+                    <div class="col-lg-8 mx-2 px-0 white">
+                        <div class="card2 first-screen show ml-2">
+                            <!-- Heading -->
+                            <div class=" wow fadeIn">
+                                <div class="py-3 px-5 font-weight-bold text-default">
+                                    <p style="margin-top: 9px;
+                                margin-bottom: 0rem;">Property details </p>
+                                </div>
+                                <hr class="w-100 py-2 p-0 m-0">
+                                <!--inside -->
+                                <!-- Default form login -->
+                                <div class="p-3">
+                                    <form class="border border-light " action="#!">
+                                        <!-- Default form login -->
+                                        <div class="row p-5">
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <!--Back and continue buttons-->
+                                            <div class="col-lg-12">
+                                                <center>
+                                                    <!--<a class="btn w-auto btn-dark lighten-4 ">Back</a-->
+                                                  <!-- <input role="button" type="submit" value="Save & Continue"
+                                                        class=" next-button btn btn-red lighter-4">
+                                                        -->
+                                                        <div class="next-button text-center mt-1 ml-2"> <span
+                                                        class="fa fa-arrow-right"></span> </div>
+                                                </center>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card2 ml-2">
+                            <!-- Heading -->
+                            <div class=" wow fadeIn">
+                                <div class="py-3 px-5 font-weight-bold text-default">
+                                    <p style="margin-top: 9px;
+                                                        margin-bottom: 0rem;">hello </p>
+                                </div>
+                                <hr class="w-100 py-2 p-0 m-0">
+                                <!--inside -->
+                                <!-- Default form login -->
+                                <div class="p-3">
+                                    <form class="border border-light " action="#!">
+                                        <!-- Default form login -->
+                                        <div class="row p-5">
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="inputEx1">Apartment Type*</label>
+                                                <input type="text" id="inputEx1" class="form-control">
+                                            </div>
+                                            <!--Back and continue buttons-->
+                                            <div class="col-lg-12">
+                                                <center>
+                                                    <!--<a class="btn w-auto btn-dark lighten-4 ">Back</a-->
+                                                    <!-- <input role="button" type="submit" value="Save & Continue"
+                                                                                class=" next-button btn btn-red lighter-4">
+                                                                                -->
+                                                    <div class="next-button text-center mt-1 ml-2"> <span class="fa fa-arrow-right"></span>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    </div>
+
+                </div>
+</div>
+
+
+</main>
+
+    
+</body>
+</html>

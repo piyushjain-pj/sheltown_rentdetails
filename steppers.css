@@ -1,0 +1,93 @@
+        body {
+            background-color: #f1f1f1;
+        }
+        .progress-bar {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-pack: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #2ECAB6;
+            transition: width .6s ease;
+        }
+        .progress {
+        display: -ms-flexbox;
+        display: flex;
+        height: 1rem;
+        overflow: hidden;
+        line-height: 0;
+        font-size: .75rem;
+        background-color: #e9ecef;
+        border-radius: 0!important;
+    }
+    
+        /* Mark input boxes that gets an error on validation: */
+        input[type=text].invalid {
+            border-radius: 0px;
+            border: 1px solid #ec3709cf;
+
+                }
+    
+        /* Hide all steps by default: */
+        .tab {
+            display: none;
+        }
+    
+        #nextBtn,#prevBtn {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: Raleway;
+            cursor: pointer;
+            border-radius: 3%;
+        }
+    
+        #nextBtn:hover {
+            opacity: 0.8;
+        }
+    
+        #prevBtn {
+            background-color: #4d4a4a;
+        }
+        #prevBtn:hover {
+         opacity: 0.8;
+        }
+        .step-side{
+        z-index: 1;
+        color: #495057;
+        background-color: white;
+
+        }
+        .step-side.active{
+            opacity: 2;
+
+
+        }
+        .step-side.finish {
+            background-color: rgb(3, 168, 160);
+        }
+        /* Make circles that indicate the steps of the form: */
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+        }
+    
+  
+        /* Mark the steps that are finished and valid: */
+        .step.finish {
+            background-color: #6479c8;
+        }
+    

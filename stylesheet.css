@@ -1,7 +1,16 @@
 body {
   height: 100%;
 }
+.proptype.active {
+    color: #ffffff!important;
+    background-color: #2EC4B6!important;
+    border-color: #dee2e6 #dee2e6 #fff!important;
+}
+.proptype:hover{
+  border: 2px solid !important;
+  border-color: #dee2e6 #dee2e6 #fff!important;
 
+}
 .hoverable:hover {
     -webkit-box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);

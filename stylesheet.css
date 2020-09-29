@@ -157,7 +157,7 @@ body {
 
 /* Carousel base class */
 .carousel {
-  margin-bottom: 0rem;
+  margin-bottom: 1rem;
 }
 .carousel-inner{
     height: 100%;
@@ -169,24 +169,35 @@ body {
 }
 .carousel-item-text{
   font-size: 50px!important; 
-  text-shadow: 5px -2px 15px black;
-  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 5px -2px 15px  white;
+  color: rgb(34, 29, 29);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
+
+
 .carousel-item-sub-text{
-  text-shadow: -1px -2px 3px  black;
   justify-content: left;
+  text-shadow: 5px -2px 15px  white;
+  color: rgb(34, 29, 29);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
 
 }
 /* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 28rem;
+.carousel-item{
+  height:  28rem;
+
+}
+.carousel hr{
+
+  width: 30%;
+  text-align: center!important;
+
 }
 .carousel-item > img {
   position: absolute;
-  top: 0;
+  top: -80px;
   left: 0;
   min-width: 100%;
 }
@@ -250,12 +261,12 @@ body {
     font-weight: 600;
 }
 
+
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 @media (max-width: 767px) {
-      .callus{
-        
-      }
+
       .btnsignup{
         font-family: 'Times New Roman', Times, serif;
         font-size: 10px;
@@ -263,19 +274,45 @@ body {
 
       }
        .formimage {
-    height: 227px;
-    width: 302px;
+          height: 227px;
+          width: 302px;
 
-}
+      }
+      
+        .carousel-item {
+              height: 21rem;
+          }
+          .carousel {
+           margin-bottom: -2rem;
+            }
+            
+
+        .carousel-item > img {
+            position: absolute;
+            top: 0px;
+            left: -101px;
+            min-width: 100%;
+            bottom: 0px;
+        }
+
+        .carousel-caption {
+            bottom: -2.5rem;
+            z-index: 10;
+        }
 
         .carousel-item-text{
           font-size: 30px!important; 
-          text-shadow: 5px -2px 15px black;
+          text-shadow: 5px -2px 15px white;
           font-family: 'Times New Roman', Times, serif;
 
         }
+      .carousel hr{
+          width: 100%;
+          text-align: center!important;
+
+        }
         .carousel-item-sub-text{
-          text-shadow: -1px -2px 3px  black;
+          text-shadow: -1px -1px 2px  white;
           justify-content: left;
           font-size: 15px;
           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

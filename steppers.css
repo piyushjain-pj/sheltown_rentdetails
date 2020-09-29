@@ -37,7 +37,14 @@
         .tab {
             display: none;
         }
-    
+        #progressspan{
+            font-size: 10px;
+            font-weight: 600;
+        }
+        #progressbarcount{
+             font-size: 7px;
+            font-weight: 600;
+        }
         #nextBtn,#prevBtn {
             background-color: #4CAF50;
             color: #ffffff;

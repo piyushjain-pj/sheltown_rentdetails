@@ -75,11 +75,11 @@ List Property Process Sections
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12 " style="padding-top: 30px">
-                            <div class="progress" style="height: 6px;">
+                            <div class="progress" style="height: 6px;width:300px;margin: 0px 0px 0px 240px;">
                                 <div class="progress-bar progress-bar-success"role="progressbar" id="progressbarcount" style="width: 0%;" aria-valuenow="0"          aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
-                        <div class="col-lg-1 px-1"style="padding-top: 20px"><span class="flex-direction : row"><p id="progresstext"></p>% Done</span>
+                        <div class="col-lg-1 px-1"style="padding-top: 26px"><span class="flex-direction : row " id="progressspan"><p id="progresstext"></p>% Done</span>
                         </div>
 
 
@@ -116,7 +116,7 @@ List Property Process Sections
 <!--end--Side bar -->
 <div class="col-lg-8 mx-2 px-0 white">
     <div class="px-0">
-        <form id="addnewproperty" action="#">
+        <form id="addnewproperty" action="action.html">
         <div class="row">
         <div class="col-lg-12">    
              <!--Property details Section-->
@@ -130,7 +130,7 @@ List Property Process Sections
                 <div class="col-lg-6">
                     <!--Blue select-->
                     <label class="mdb-main-label">Apartment Type*</label>
-                    <select class="custom-select  mb-3">
+                    <select name="apartmenttype" class="custom-select  mb-3">
                         <option selected>Choose...</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
@@ -139,14 +139,14 @@ List Property Process Sections
                         <option value="5">Option 5</option>
                     </select>
                     <label class="mr-sm-2" for="inlineFormCustomSelect1">BHK Type*</label>
-                    <select class="custom-select mr-sm-2 mb-3" id="inlineFormCustomSelect1">
+                    <select name="bhktype" class="custom-select mr-sm-2 mb-3" id="inlineFormCustomSelect1">
                         <option selected>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
                     <label class="mdb-main-label">Property Age*</label>
-                    <select class="custom-select  mb-3">
+                    <select name="propertyage" class="custom-select  mb-3">
                         <option selected>Choose...</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
@@ -156,30 +156,30 @@ List Property Process Sections
                         <label for="inlineFormInputGroupUsername">Property Size*</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                            <div class="bg-white input-group-text">₹</div>
+                            <div class="bg-white input-group-text"><i class="fa fa-ruler-combined"></i></div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Property in Sq.ft">
+                            <input name="propertysize" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Property in Sq.ft">
                         </div>
                     <!--/Blue select-->
                 </div>
                 <div class="col-lg-6">
                        <div class="py-5">
                         <label class="mr-sm-2" for="inlineFormCustomSelect">Floor*</label>
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <select name="floor" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                             <option selected>Choose...</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </select>
                             <label class="mr-sm-2" for="inlineFormCustomSelect">Total Floor*</label>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <select name="totalfloor" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Facing</label>
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                <select name="propertyfacing" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                     <option selected>Choose...</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -202,7 +202,7 @@ List Property Process Sections
                     <div class="col-lg-6">
                         <!--Blue select-->
                         <label class="mdb-main-label">City *</label>
-                        <select class="custom-select mb-4">
+                        <select name="propertycity" class="custom-select mb-4">
                             <option selected>Choose...</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
@@ -215,7 +215,7 @@ List Property Process Sections
                             <div class="input-group-prepend">
                             <div class="bg-white input-group-text">₹</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Property in Sq.ft">
+                            <input name="streetarea" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Property in Sq.ft">
                         </div>
                 </div>
                 <div class="col-lg-6 ">
@@ -224,7 +224,7 @@ List Property Process Sections
                             <div class="input-group-prepend">
                             <div class="bg-white input-group-text"><i class="fa fa-map-marker"></i></div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Property in Sq.ft">
+                            <input name="locality" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Property in Sq.ft">
                         </div>
                 </div>
             </div>
@@ -241,11 +241,11 @@ List Property Process Sections
                     <div class="col-lg-6">
                         <label>property available for*</label><br>
                         <div class="custom-control custom-radio custom-control-inline"" >
-                            <input type="radio" class="custom-control-input" id="defaultChecked1" name="defaultExample2">
+                            <input name="propertyavailablefor" type="radio" class="custom-control-input" id="defaultChecked1" name="defaultExample2">
                             <label class="custom-control-label" for="defaultChecked1">Rental Only</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline" >
-                            <input type="radio" class="custom-control-input" id="defaultChecked2" name="defaultExample2">
+                            <input name="propertyavailablefor" type="radio" class="custom-control-input" id="defaultChecked2" name="defaultExample2">
                             <label class="custom-control-label" for="defaultChecked2">Lease Only</label>
                         </div>
                         <br>
@@ -255,7 +255,7 @@ List Property Process Sections
                             <div class="input-group-prepend">
                                 <div class="bg-white input-group-text">₹</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGrouprentpermonth" placeholder="Enter rent per month">
+                            <input name="expectedrent" type="text" class="form-control" id="inlineFormInputGrouprentpermonth" placeholder="Enter rent per month">
                         </div>
                         <!-- Default checked -->
                         <div class="custom-control custom-checkbox mb-3">
@@ -264,7 +264,7 @@ List Property Process Sections
                         </div>
 
                         <label for="inlineFormInputGroupMaintenance" class="mdb-main-label">Maintenance *</label>
-                        <select id="inlineFormInputGroupMaintenance" class="custom-select mb-2">
+                        <select name="maintenance" id="inlineFormInputGroupMaintenance" class="custom-select mb-2">
                             <option selected>Choose...</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
@@ -275,7 +275,7 @@ List Property Process Sections
 
                         <label for="inlineFormInputavailable">Available From*</label>
                         <div class="input-group mb-3">
-                            <input type="date" name="propertymaintainance" class="form-control" id="inlineFormInputavailable" placeholder="">
+                            <input name="availablefor" type="date" name="propertymaintainance" class="form-control" id="inlineFormInputavailable" placeholder="">
                         </div>
 
 
@@ -288,12 +288,12 @@ List Property Process Sections
                             <div class="input-group-prepend">
                             <div class="bg-white input-group-text"><i class="fa fa-map-marker-alt"></i></div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="area/landmark">
+                            <input name="locality" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="area/landmark">
                         </div>
 
 
                         <label for="inlineFormInputFursuing" class="mdb-main-label">Furnishing *</label>
-                        <select id="inlineFormInputFursuing" class="custom-select mb-4">
+                        <select name="furnshing" id="inlineFormInputFursuing" class="custom-select mb-4">
                             <option selected>Choose...</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
@@ -303,7 +303,7 @@ List Property Process Sections
                         </select>
 
                         <label for="inlineFormInputTenants" class="mdb-main-label">Preferred Tenants *</label>
-                        <select id="inlineFormInputTenants" class="custom-select mb-4">
+                        <select name="tenants" id="inlineFormInputTenants" class="custom-select mb-4">
                             <option selected>Choose...</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
@@ -313,7 +313,7 @@ List Property Process Sections
                         </select>
 
                         <label for="inlineFormInputParking" class="mdb-main-label">Parking *</label>
-                        <select id="inlineFormInputParking" class="custom-select mb-4">
+                        <select name="parking" id="inlineFormInputParking" class="custom-select mb-4">
                             <option selected>Choose...</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
@@ -326,7 +326,7 @@ List Property Process Sections
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea2">Propetry Description</label>
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+                            <textarea name="description" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -386,38 +386,310 @@ List Property Process Sections
 
             <!--Amenties details Section-->
             <div class="tab">
-            <!-- Heading -->
-            <div class="py-3 px-5 font-weight-bold text-default">
-            <p style="margin-top: 9px; margin-bottom: 0rem;">Property details 5 </p>
-            </div>
-            <hr class="w-100 py-2 p-0 m-0">
+                <!-- Heading -->
+                <div class="py-3 px-5 font-weight-bold text-default">
+                    <p class="form-head-text">Provide additional details about property get Maximum Visible</p>
+                </div>
+                <hr class="w-100 py-2 p-0 m-0">
+                <div class="py-3 px-5">
+                <div class="row">
+                    <div class="col-lg-4 ">
+                        <label for="inlineFormInputNoBathroom">Bathrooms *</label>
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="bg-white input-group-text"><i class="fa fa-bath"></i></div>
+                        </div>
+                        <input name="noofbath" type="number" class="form-control" id="inlineFormInputNoBathroom" placeholder="0">
+                     </div>
+                     </div>
+                    <div class="col-lg-4 ">
+                        <label for="inlineFormInputGroupNoBalcony">Balcony *</label>
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="bg-white input-group-text"><i class="fa fa-person-booth"></i></div>
+                        </div>
+                        <input type="number" name="noofbalcony" class="form-control" id="inlineFormInputGroupNoBalcony" placeholder="0">
+                     </div>
+                     </div>
+
+                    <div class="col-lg-4">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">Water Supply *</label>
+                        <select class="custom-select mb-4">
+                            <option name="watersupply" selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">Gym *</label>
+                        <select class="custom-select mb-4">
+                            <option name="gym" selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                   </div>
+                    <div class="col-lg-4">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">Non-Veg Allowed *</label>
+                        <select name="non-veg" class="custom-select mb-4">
+                            <option selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                   </div>
+                    <div class="col-lg-4">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">Gated Security *</label>
+                        <select name="gatedSecurity" class="custom-select mb-4">
+                            <option selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            <option value="4">Option 4</option>
+                            <option value="5">Option 5</option>
+                       </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <label for="inlineFormInputGroupUsername">Secondary Number</label>
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="bg-white input-group-text"><i class="fa fa-phone-alt"></i></div>
+                        </div>
+                        <input name="Secondnumber" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Secondary Mobile">
+                     </div>
+                     </div>
+
+                    <div class="col-lg-4">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">Who Will Me Show the House ? *</label>
+                        <select class="custom-select mb-4">
+                            <option name="houseowner" selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                    </div>                    
+                </div>
+                <hr class="pt-2 " />
+                <p class="h6 py-2 dark-grey-text">Select the Available Amenities
+                </p>
+                <div class="row">
+                    <div class="pt-1 col-lg-4">
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem1" class="form-check-input" id="amenty1
+                            ">
+                            <label  class="form-check-label gray-dark" for="amenty1
+                            "><i class="fas fa-arrows-alt-v gray-dark px-2"></i>Lift</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem2" class="form-check-input" id="amenty2
+                            ">
+                            <label class="form-check-label" for="amenty2
+                            "><i class="fa fa-wifi gray-dark px-2"></i>Internet services</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem3" class="form-check-input" id="amenty3
+                            ">
+                            <label class="form-check-label" for="amenty3
+                            "><i class="fa fa-snowflake gray-dark px-2"></i>Air conditioner</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                        <input type="checkbox" name="amentyitem4" class="form-check-input" id="amenty4
+                        ">
+                        <label class="form-check-label" for="amenty4
+                        "><i class="fas fa-glass-cheers gray-dark px-2"></i>Club House</label>
+                    </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem5" class="form-check-input" id="amenty5
+                            ">
+                            <label class="form-check-label" for="amenty5
+                            "><i class="fab fa-intercom gray-dark px-2"></i>Intercom</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem6" class="form-check-input" id="amenty6
+                            ">
+                            <label class="form-check-label" for="amenty6
+                            "><i class="fa fa-swimming-pool gray-dark px-2"></i>Swiming Pool</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem7" class="form-check-input" id="amenty8
+                            ">
+                            <label class="form-check-label" for="amenty8
+                            "><i class="fab fa-slideshare gray-dark px-2"></i>Childrens playing area</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                        <input type="checkbox" name="amentyitem9" class="form-check-input" id="amenty9
+                        ">
+                        <label class="form-check-label" for="amenty9
+                        "><i class="fas fa-fire-extinguisher gray-dark px-2"></i>Fire Safety</label>
+                    </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                        <input type="checkbox" name="amentyitem10" class="form-check-input" id="amenty10
+                        ">
+                        <label class="form-check-label" for="amenty10
+                        "><i class="fas fa-check-circle gray-dark px-2"></i>Servant Room</label>
+                    </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                            <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem11" class="form-check-input" id="amenty11
+                            ">
+                            <label class="form-check-label" for="amenty11
+                            "><i class="fa fa-store gray-dark px-2"></i>Shopping Center</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem12" class="form-check-input" id="amenty12
+                            ">
+                            <label class="form-check-label" for="amenty12
+                            "><i class="fa fa-burn gray-dark px-2"></i>Gas Pipeline</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem13" class="form-check-input" id="amenty13
+                            ">
+                            <label class="form-check-label" for="amenty13
+                            "><i class="fa fa-tree gray-dark px-2"></i>Park</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem14" class="form-check-input" id="amenty14
+                            ">
+                            <label class="form-check-label" for="amenty14
+                            "><i class="fa fa-check-circle gray-dark px-2"></i>Rain Water Harvesting</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem15" class="form-check-input" id="amenty15
+                            ">
+                            <label class="form-check-label" for="amenty15
+                            "><i class="fa fa-trash-alt gray-dark px-2"></i>Sewage Treament Plant</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                            <input type="checkbox" name="amentyitem16" class="form-check-input" id="amenty16
+                            ">
+                            <label class="form-check-label" for="amenty16
+                            "><i class="fa fa-person-booth gray-dark px-2"></i>House keeping</label>
+                        </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                        <input type="checkbox" name="amentyitem17" class="form-check-input" id="amenty17
+                        ">
+                        <label class="form-check-label" for="amenty17
+                        "><i class="fa fa-car-battery gray-dark px-2"></i>Power Backup</label>
+                    </div>
+                    </div>
+                    <div class="pt-1 col-lg-4">
+                          <div class="form-group form-check">
+                        <input type="checkbox" name="amentyitem18" class="form-check-input" id="amenty18
+                        ">
+                        <label class="form-check-label" for="amenty18
+                        "><i class="fa fa-parking gray-dark px-2"></i>Visitor Parking</label>
+                    </div>
+                    </div>
+                </div>
+                </div>
             </div>
             <!--End Amenties details Section-->
-
-
             <!--Schedule details Section-->
             <div class="tab">
-            <!-- Heading -->
             <div class="py-3 px-5 font-weight-bold text-default">
-            <p style="margin-top: 9px; margin-bottom: 0rem;">Property details 6 </p>
+            <p class="form-head-text">Make house visits hassle-free by providing us your availability </p>
             </div>
             <hr class="w-100 py-2 p-0 m-0">
+
+            <div class="row p-4">
+                <div class="col-lg-6">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">I want to get my house painted*</label>
+                        <select name="wanttopaint" class="custom-select mb-4">
+                            <option selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                   </div>
+                    <div class="col-lg-6">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">I want to get my house clean*</label>
+                        <select class="custom-select mb-4">
+                            <option name="wanttoclean" selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                        </select>
+                   </div>
+                    <div class="col-lg-6">
+                        <!--Blue select-->
+                        <label class="mdb-main-label">Availablility*</label>
+                        <select name="availability" class="custom-select mb-4">
+                            <option selected>Choose...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                       </select>
+                    </div>
+                    <div class="col-lg-6">
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-lg-6">
+                        <label for="inlineFormInputStarttime">Start Time *</label>
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="bg-white input-group-text"><i class="fa fa-clock"></i></div>
+                        </div>
+                        <input name="starttime" type="number" class="form-control" id="inlineFormInputStarttime" placeholder="0">
+                     </div>
+                     </div>
+                    <div class="col-lg-6 ">
+                        <label for="inlineFormInputGroupendtime">End Time *</label>
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="bg-white input-group-text"><i class="fa fa-clock"></i></div>
+                        </div>
+                        <input type="number" name="endtime" class="form-control" id="inlineFormInputGroupendtime" placeholder="0">
+                     </div>
+                     </div>      
+            </div>
             </div>
             <!--End Schedule details Section-->
 
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12 py-3">
+            <hr class="py-1"> 
             <center>
-            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>              <button type="button" id="nextBtn" onclick="nextPrev(1)">Save & Continue</button>   
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>              <button type="button" id="nextBtn" onclick="nextPrev(1)">Save & Continue</button>
+  
             </center>
         </div>
         </div>
         </form>
     </div>
 </div>
-
-
-
 <div class="col-lg-2 bg-white px-1 fixleftside ">
     <div class="px-0 pb-5">
         <!-- Heading -->
@@ -502,6 +774,7 @@ List Property Process Sections
 <script type="text/javascript" src="stepper.js"></script>
 <!---Footer section will here-->
 <!--Footer one -->
+
 <footer class="site-footer py-5 mt-1 ">
         <div class="container">
             <div class="row">

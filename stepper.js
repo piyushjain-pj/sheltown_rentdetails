@@ -13,7 +13,7 @@ movemybar(n)
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Finish";
+    document.getElementById("nextBtn").innerHTML = "Finish Posting";
   } else {
     document.getElementById("nextBtn").innerHTML = "Save & Continue";
   }
@@ -101,6 +101,7 @@ function getTab(n) {
         showTab(n)
     }
     else if (n==2){
+      if (n == 2 && !validateForm()) return false;
         x[1].style.display = "none"
         x[0].style.display = "none"
         x[3].style.display = "none"
@@ -109,6 +110,7 @@ function getTab(n) {
         showTab(n)
     }
     else if (n==3){
+      if (n == 3 && !validateForm()) return false;
         x[1].style.display = "none"
         x[2].style.display = "none"
         x[0].style.display = "none"
@@ -117,6 +119,7 @@ function getTab(n) {
         showTab(n)
     }
     else if(n==4){
+      if (n == 4 && !validateForm()) return false;
         x[1].style.display = "none"
         x[2].style.display = "none"
         x[3].style.display = "none"
@@ -125,6 +128,7 @@ function getTab(n) {
         showTab(n)
     }
     else if(n==5){
+      if (n == 5 && !validateForm()) return false;
         x[1].style.display = "none"
         x[2].style.display = "none"
         x[3].style.display = "none"

@@ -157,14 +157,14 @@ body {
 
 /* Carousel base class */
 .carousel {
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
 }
 .carousel-inner{
     height: 100%;
     }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 0.5rem;
+  bottom: 0.2rem;
   z-index: 10;
 }
 .carousel-item-text{
@@ -186,7 +186,7 @@ body {
 }
 /* Declare heights because of positioning of img element */
 .carousel-item{
-  height:  28rem;
+  height:  24rem;
 
 }
 .carousel hr{
